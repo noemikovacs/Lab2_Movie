@@ -45,14 +45,14 @@ namespace Lab2_Movie.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Movie>> GetMovie(long id)
         {
-            var movie = await _context.Movies.FindAsync(id);
+            var movie = _context.Movies;
 
             if (movie == null)
             {
                 return NotFound();
             }
 
-            return movie;
+            return await movie.Include(e => e.Comments).SingleOrDefaultAsync(e => e.Id == id); ;
         }
 
         // PUT: api/Movies/5

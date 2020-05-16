@@ -11,7 +11,8 @@ namespace Lab2_Movie.Models
         public long Id { get; set; }
         public string Text { get; set; }
         public bool Important { get; set; }
-        [JsonIgnore]
-        public Movie Movie { get; set; }
+        //[JsonIgnore]
+        //public Movie Movie { get; set; }
+        public int MovieId { get; set; }
     }
 }
