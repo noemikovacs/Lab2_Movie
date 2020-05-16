@@ -18,6 +18,8 @@ namespace Lab2_Movie.Models
             public DateTimeOffset DateAdded { get; set; }
             public int Rating { get; set; }
             public bool WasWatched { get; set; }
-        
+
+            public List<Comment> Comments { get; set; }
+
     }
 }

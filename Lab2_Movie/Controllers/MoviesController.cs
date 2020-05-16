@@ -26,7 +26,7 @@ namespace Lab2_Movie.Controllers
             [FromQuery] DateTimeOffset? from = null, 
             [FromQuery] DateTimeOffset? to = null)
         {
-            IQueryable<Movie> result = _context.Movies;
+            IQueryable<Movie> result = _context.Movies.Include(f => f.Comments);
             if (from != null)
             {
                 result = result.Where(f => from <= f.DateAdded);
