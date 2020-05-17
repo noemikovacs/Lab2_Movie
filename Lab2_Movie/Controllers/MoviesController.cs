@@ -21,6 +21,12 @@ namespace Lab2_Movie.Controllers
         }
 
         // GET: api/Movies
+        /// <summary>
+        /// Gets a list of all the movies
+        /// </summary>
+        /// <param name="from">Filter movies added from this date time (inclusive). Leave empty for no lower limit.</param>
+        /// <param name="to">Filter movies add up to this date time (inclusive). Leave empty for no upper limit.</param>
+        /// <returns>A list of Movie objects.</returns> 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Movie>>> GetMovies(
             [FromQuery] DateTimeOffset? from = null, 
@@ -42,6 +48,17 @@ namespace Lab2_Movie.Controllers
         return resultList;
     }
         // GET: api/Movies/5
+        /// <summary>
+        /// Get Movies with an unique id
+        /// </summary>
+        /// <remark>
+        /// Sample request:
+        /// 
+        ///   GET  /api/Movies/5 
+        /// 
+        /// </remark>
+        /// <param name="id">The ID for the movie we're searching for</param>
+        /// <returns>Movie with that id</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Movie>> GetMovie(long id)
         {
@@ -56,6 +73,12 @@ namespace Lab2_Movie.Controllers
         }
 
         // PUT: api/Movies/5
+        /// <summary>
+        /// Add or Update a Movie
+        /// </summary>
+        /// <param name="id">The ID of the Movie </param>
+        /// <param name="movie"></param>
+        /// <returns>The updated or created Movie</returns>
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
@@ -88,6 +111,33 @@ namespace Lab2_Movie.Controllers
         }
 
         // POST: api/Movies
+        /// <summary>
+        /// Add/Create a new Movie
+        /// </summary>
+        /// /// <remarks>
+        /// Sample request:
+        ///     
+        ///    POST/    {
+        ///		 "title" : "The title",
+	    ///         "description" : "This is a  very nice movie",
+	    ///         "genre" : "Action",
+	    ///         "durationInMin" : 100,
+	    ///         "yearOfRelease" : 2000,
+	    ///         "director" : "Who Cares",
+	    ///         "dateAdded" : "2017-09-08T19:01:55.714942+03:00",
+	    ///         "rating" : 10,
+	    ///         "wasWatched" : false,
+	    ///         "comments" : [
+		///         {
+		///             "text": "I recommend",
+		///             "important" :true
+        ///          }
+		///          ]
+        ///         }
+        /// 
+        /// </remarks>
+        /// <param name="movie">Movie we want to add </param>
+        /// <returns>Ok if everything is fine</returns>
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
@@ -100,6 +150,17 @@ namespace Lab2_Movie.Controllers
         }
 
         // DELETE: api/Movies/5
+        /// <summary>
+        /// Delete a movie with a certain id
+        /// </summary>
+        /// /// <remarks>
+        /// Sample request:
+        ///     
+        ///             api/Movies/2
+        /// 
+        /// </remarks>
+        /// <param name="id">Id for the movie we want to delete</param>
+        /// <returns>Ok if it was deleted, nok otherwise</returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Movie>> DeleteMovie(long id)
         {

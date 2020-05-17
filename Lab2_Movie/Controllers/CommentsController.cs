@@ -21,6 +21,10 @@ namespace Lab2_Movie.Controllers
         }
 
         // GET: api/Comments
+        /// <summary>
+        /// Gets a list of all the comments
+        /// </summary>
+        /// <returns>A list of Comment objects.</returns> 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Comment>>> GetComments()
         {
@@ -28,6 +32,17 @@ namespace Lab2_Movie.Controllers
         }
 
         // GET: api/Comments/5
+        /// <summary>
+        /// Get a Comment with an unique id
+        /// </summary>
+        /// <remark>
+        /// Sample request:
+        /// 
+        ///   GET  /api/Comments/8
+        /// 
+        /// </remark>
+        /// <param name="id">The ID for the comment which is associated to a Movie </param>
+        /// <returns>Comment with that Movie id</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Comment>> GetComment(long id)
         {
@@ -42,6 +57,11 @@ namespace Lab2_Movie.Controllers
         }
 
         // PUT: api/Comments/5
+        /// <summary>
+        /// Add or Update
+        /// </summary>
+        /// <param name="comment">The updated or created Comment</param>
+        /// <returns></returns>
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
@@ -74,6 +94,11 @@ namespace Lab2_Movie.Controllers
         }
 
         // POST: api/Comments
+        /// <summary>
+        /// Add/Create a new Comment
+        /// </summary>
+        /// <param name="comment">Comment we want to add </param>
+        /// <returns>Ok if everything is fine</returns>
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
@@ -86,6 +111,11 @@ namespace Lab2_Movie.Controllers
         }
 
         // DELETE: api/Comments/5
+        /// <summary>
+        /// Delete a comment with a certain id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Comment>> DeleteComment(long id)
         {
