@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Lab2_Movie.Models;
+using Lab2_Movie.ViewModels;
 
 namespace Lab2_Movie.Controllers
 {
@@ -28,7 +29,7 @@ namespace Lab2_Movie.Controllers
         /// <param name="to">Filter movies add up to this date time (inclusive). Leave empty for no upper limit.</param>
         /// <returns>A list of Movie objects.</returns> 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Movie>>> GetMovies(
+        public async Task<ActionResult<IEnumerable<MovieWithNrOfComments>>> GetMovies(
             [FromQuery] DateTimeOffset? from = null, 
             [FromQuery] DateTimeOffset? to = null)
         {
@@ -42,8 +43,32 @@ namespace Lab2_Movie.Controllers
                 result = result.Where(f => f.DateAdded <= to);
             }
 
-        var resultList = await result
+            /*       <th>Title</th>
+            <th>Description</th>
+            <th>MovieUpKeepGenre</th>
+            <th>DurationInMin</th>
+            <th>YearofRelease</th>
+            <th>Director</th>
+            <th>DateAdded</th>
+            <th>Rating</th>
+            <th>WasWatched</th>
+            <th>Comments</th>*/
+
+            var resultList = await result
             .OrderByDescending(m => m.YearOfRelease)
+            .Select(m => new MovieWithNrOfComments
+            {
+                Id = m.Id, 
+                Title = m.Title,
+                Genre = m.Genre,
+                DurationInMin = m.DurationInMin,
+                YearOfRelease = m.YearOfRelease,
+                Director = m.Director,
+                DateAdded = m.DateAdded,
+                Rating = m.Rating,
+                WasWatched = m.WasWatched,
+                NumberOfComments = m.Comments.Count
+            })
             .ToListAsync();
         return resultList;
     }

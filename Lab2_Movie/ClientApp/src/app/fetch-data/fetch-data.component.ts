@@ -2,19 +2,20 @@ import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-fetch-data',
-  templateUrl: './fetch-data.component.html'
+    selector: 'app-fetch-data',
+    templateUrl: './fetch-data.component.html'
 })
 export class FetchDataComponent {
 
     public movies: Movie[];
 
- constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
         http.get<Movie[]>(baseUrl + 'api/movies').subscribe(result => {
             this.movies = result;
         }, error => console.error(error));
     }
 }
+
 
 
 interface Movie {
@@ -27,4 +28,5 @@ interface Movie {
   dateAdded: Date;
   rating: number;
   wasWatched: boolean;
+  
 }
