@@ -56,19 +56,7 @@ namespace Lab2_Movie.Controllers
 
             var resultList = await result
             .OrderByDescending(m => m.YearOfRelease)
-            .Select(m => new MovieWithNrOfComments
-            {
-                Id = m.Id, 
-                Title = m.Title,
-                Genre = m.Genre,
-                DurationInMin = m.DurationInMin,
-                YearOfRelease = m.YearOfRelease,
-                Director = m.Director,
-                DateAdded = m.DateAdded,
-                Rating = m.Rating,
-                WasWatched = m.WasWatched,
-                NumberOfComments = m.Comments.Count
-            })
+            .Select(m => MovieWithNrOfComments.FromMovie(m))
             .ToListAsync();
         return resultList;
     }

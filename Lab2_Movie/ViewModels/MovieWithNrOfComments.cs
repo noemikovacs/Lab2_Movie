@@ -20,5 +20,22 @@ namespace Lab2_Movie.ViewModels
         public bool WasWatched { get; set; }
         public long NumberOfComments { get; set; }
 
+        public static MovieWithNrOfComments FromMovie(Movie m)
+        {
+            return new MovieWithNrOfComments
+            {
+                Id = m.Id,
+                Title = m.Title,
+                Genre = m.Genre,
+                DurationInMin = m.DurationInMin,
+                YearOfRelease = m.YearOfRelease,
+                Director = m.Director,
+                DateAdded = m.DateAdded,
+                Rating = m.Rating,
+                WasWatched = m.WasWatched,
+                NumberOfComments = m.Comments.Count
+            };
+
+        }
     }
 }
