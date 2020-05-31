@@ -43,17 +43,6 @@ namespace Lab2_Movie.Controllers
                 result = result.Where(f => f.DateAdded <= to);
             }
 
-            /*       <th>Title</th>
-            <th>Description</th>
-            <th>MovieUpKeepGenre</th>
-            <th>DurationInMin</th>
-            <th>YearofRelease</th>
-            <th>Director</th>
-            <th>DateAdded</th>
-            <th>Rating</th>
-            <th>WasWatched</th>
-            <th>Comments</th>*/
-
             var resultList = await result
             .OrderByDescending(m => m.YearOfRelease)
             .Select(m => MovieWithNrOfComments.FromMovie(m))
