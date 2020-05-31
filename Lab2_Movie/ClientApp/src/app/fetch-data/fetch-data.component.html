@@ -1,0 +1,38 @@
+<h1 id="tableLabel">Movie</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!movies"><em>Loading movies...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="movies">
+  <thead>
+      <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Genre</th>
+          <th>DurationInMin</th>
+          <th>YearOfRelease</th>
+          <th>Director</th>
+          <th>DateAdded</th>
+          <th>Rating</th>
+          <th>WasWatched</th>
+          <th>NrOfcomments</th>
+          <th>Operations</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let movie of movies">
+          <td>{{ movie.title }}</td>
+          <td>{{ movie.description }}</td>
+          <td>{{ movie.genre }}</td>
+          <td>{{ movie.durationInMin }}</td>
+          <td>{{ movie.yearOfRelease }}</td>
+          <td>{{ movie.director }}</td>
+          <td>{{ movie.dateAdded }}</td>
+          <td>{{ movie.rating}}</td>
+          <td>{{ movie.wasWatched}}</td>
+          <td>{{ movie.numberOfComments}}</td>
+          <td><a>Details</a>|<a>Edit</a>|<a>Delete</a></td>
+      </tr>
+  </tbody>
+</table>

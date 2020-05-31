@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Lab2_Movie.Models;
+using Lab2_Movie.ViewModels;
 
 namespace Lab2_Movie.Controllers
 {
@@ -28,7 +29,7 @@ namespace Lab2_Movie.Controllers
         /// <param name="to">Filter movies add up to this date time (inclusive). Leave empty for no upper limit.</param>
         /// <returns>A list of Movie objects.</returns> 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Movie>>> GetMovies(
+        public async Task<ActionResult<IEnumerable<MovieWithNrOfComments>>> GetMovies(
             [FromQuery] DateTimeOffset? from = null, 
             [FromQuery] DateTimeOffset? to = null)
         {
@@ -42,8 +43,9 @@ namespace Lab2_Movie.Controllers
                 result = result.Where(f => f.DateAdded <= to);
             }
 
-        var resultList = await result
+            var resultList = await result
             .OrderByDescending(m => m.YearOfRelease)
+            .Select(m => MovieWithNrOfComments.FromMovie(m))
             .ToListAsync();
         return resultList;
     }
