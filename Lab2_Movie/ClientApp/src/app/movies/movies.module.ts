@@ -7,6 +7,7 @@ import { AngularMaterialModule } from '../shared/angular-material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MoviesService } from './movies.service';
+import { CoreModule } from '../core/core.module';
 
 @NgModule({
     declarations: [MoviesRoutingModule.routedComponents],

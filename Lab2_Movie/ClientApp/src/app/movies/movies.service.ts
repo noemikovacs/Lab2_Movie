@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Movie } from './movies.models';
+import { ApplicationService } from '../core/services/application.service';
+
 
 @Injectable()
 export class MoviesService {
