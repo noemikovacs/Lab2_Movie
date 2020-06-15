@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>movies-list works!</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<h1>Movies</h1>\r\n\r\n<p>Many movies in the list</p>\r\n\r\n<div class=\"example-button-row\">\r\n    <button mat-raised-button [routerLink]='[\"../edit\"]' color=\"primary\">Add</button>\r\n</div>\r\n\r\n<table mat-table [dataSource]=\"movies\" class=\"mat-elevation-z8\">\r\n\r\n    <ng-container matColumnDef=\"title\">\r\n        <th mat-header-cell *matHeaderCellDef> Title </th>\r\n        <td mat-cell *matCellDef=\"let movie\"> {{movie.title}} </td>\r\n    </ng-container>\r\n\r\n\r\n    <ng-container matColumnDef=\"description\">\r\n        <th mat-header-cell *matHeaderCellDef> Description </th>\r\n        <td mat-cell *matCellDef=\"let movie\"> {{movie.description}} </td>\r\n    </ng-container>\r\n\r\n\r\n    <ng-container matColumnDef=\"genre\">\r\n        <th mat-header-cell *matHeaderCellDef> Genre </th>\r\n        <td mat-cell *matCellDef=\"let movie\"> {{movie.genre}} </td>\r\n    </ng-container>\r\n\r\n\r\n    <ng-container matColumnDef=\"durationInMin\">\r\n        <th mat-header-cell *matHeaderCellDef> DurationInMin </th>\r\n        <td mat-cell *matCellDef=\"let movie\"> {{movie.durationInMin}} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"yearOfRelease\">\r\n        <th mat-header-cell *matHeaderCellDef> YearOfRelease </th>\r\n        <td mat-cell *matCellDef=\"let movie\"> {{movie.yearOfRelease}} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"director\">\r\n        <th mat-header-cell *matHeaderCellDef> Director </th>\r\n        <td mat-cell *matCellDef=\"let movie\"> {{movie.director}} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"dateAdded\">\r\n        <th mat-header-cell *matHeaderCellDef> DateAdded </th>\r\n        <td mat-cell *matCellDef=\"let movie\"> {{movie.dateAdded}} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"rating\">\r\n        <th mat-header-cell *matHeaderCellDef> Rating </th>\r\n        <td mat-cell *matCellDef=\"let movie\"> {{movie.rating}} </td>\r\n    </ng-container>\r\n\r\n\r\n    <ng-container matColumnDef=\"numberOfComments\">\r\n        <th mat-header-cell *matHeaderCellDef> NrOfComments </th>\r\n        <td mat-cell *matCellDef=\"let movie\"> {{movie.numberOfComments}} </td>\r\n    </ng-container>\r\n\r\n\r\n    Action Column\r\n    <ng-container matColumnDef=\"action\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:10%\"> Action </th>\r\n        <td mat-cell *matCellDef=\"let movie\">\r\n            <button mat-icon-button matTooltip=\"Edit\" [matTooltipPosition]=\"'after'\">\r\n                <mat-icon aria-label=\"Example icon-button with a heart icon\" [routerLink]=\"['../edit', movie.id]\">edit</mat-icon>\r\n            </button>\r\n\r\n            <button mat-icon-button matTooltip=\"Delete\" [matTooltipPosition]=\"'after'\">\r\n                <mat-icon aria-label=\"Example icon-button with a heart icon \" (click)=\"deleteMovie(movie)\">delete</mat-icon>\r\n            </button>\r\n        </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n</table>\r\n\r\n<mat-progress-bar mode=\"indeterminate\" *ngIf=\"!flowers\"></mat-progress-bar>\r\n\r\n\r\n");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<router-outlet></router-outlet>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<router-outlet></router-outlet>\r\n");
 
 /***/ }),
 
@@ -450,7 +450,7 @@ MoviesEditComponent = __decorate([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vdmllcy9tb3ZpZXMtbGlzdC9tb3ZpZXMtbGlzdC5jb21wb25lbnQuY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("table {\r\n    width: 100%;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW92aWVzL21vdmllcy1saXN0L21vdmllcy1saXN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxXQUFXO0FBQ2YiLCJmaWxlIjoic3JjL2FwcC9tb3ZpZXMvbW92aWVzLWxpc3QvbW92aWVzLWxpc3QuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbInRhYmxlIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG59XHJcbiJdfQ== */");
 
 /***/ }),
 
@@ -465,6 +465,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MoviesListComponent", function() { return MoviesListComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _movies_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../movies.service */ "./src/app/movies/movies.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -478,18 +479,36 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 
+
 let MoviesListComponent = class MoviesListComponent {
-    constructor() { }
+    constructor(moviesService) {
+        this.moviesService = moviesService;
+        this.displayedColumns = ['title', 'description', 'genre', 'durationInMin', 'yearOfRelease', 'director', 'dateAdded', 'rating', 'numberOfComments', 'action'];
+    }
     ngOnInit() {
+        this.loadMovies();
+    }
+    loadMovies() {
+        this.moviesService.listMovies().subscribe(res => {
+            this.movies = res;
+        });
+    }
+    deleteMovie(movie) {
+        this.moviesService.deleteMovie(movie.id).subscribe(x => {
+            this.loadMovies();
+        });
     }
 };
+MoviesListComponent.ctorParameters = () => [
+    { type: _movies_service__WEBPACK_IMPORTED_MODULE_1__["MoviesService"] }
+];
 MoviesListComponent = __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
         selector: 'app-movies-list',
         template: __importDefault(__webpack_require__(/*! raw-loader!./movies-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/movies/movies-list/movies-list.component.html")).default,
         styles: [__importDefault(__webpack_require__(/*! ./movies-list.component.css */ "./src/app/movies/movies-list/movies-list.component.css")).default]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [_movies_service__WEBPACK_IMPORTED_MODULE_1__["MoviesService"]])
 ], MoviesListComponent);
 
 

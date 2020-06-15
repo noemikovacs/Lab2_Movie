@@ -26,6 +26,7 @@ namespace Lab2_Movie.ViewModels
             {
                 Id = m.Id,
                 Title = m.Title,
+                Description = m.Description,
                 Genre = m.Genre,
                 DurationInMin = m.DurationInMin,
                 YearOfRelease = m.YearOfRelease,
