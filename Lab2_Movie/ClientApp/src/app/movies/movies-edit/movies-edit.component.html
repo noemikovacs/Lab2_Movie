@@ -1,1 +1,87 @@
-<p>movies-edit works!</p>
+<p>
+    Add/Edit movie
+</p>
+
+<mat-card class="example-card">
+    <form *ngIf="formGroup" [formGroup]="formGroup">
+        <div class="example-container">
+
+            <mat-form-field>
+                <input matInput placeholder="Title" formControlName="title" type="text">
+
+                <mat-error *ngIf="formGroup.get('title').touched && formGroup.get('title').errors && formGroup.get('title').errors.required">
+                    Title required!
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Description" formControlName="description" type="text">
+
+                <mat-error *ngIf="formGroup.get('description').touched && formGroup.get('description').errors && formGroup.get('description').errors.required">
+                    Description required!
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Genre" formControlName="genre" type="text">
+
+                <mat-error *ngIf="formGroup.get('genre').touched && formGroup.get('genre').errors && formGroup.get('genre').errors.required">
+                    Genre required!
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="DurationInMin" formControlName="durationInMin" type="number">
+
+                <mat-error *ngIf="formGroup.get('durationInMin').touched && formGroup.get('durationInMin').errors && formGroup.get('durationInMin').errors.required">
+                    DurationInMin required!
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="YearOfRelease" formControlName="yearOfRelease" type="number">
+
+                <mat-error *ngIf="formGroup.get('yearOfRelease').touched && formGroup.get('yearOfRelease').errors && formGroup.get('yearOfRelease').errors.required">
+                    YearOfRealease required!
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Director" formControlName="director" type="text">
+
+                <mat-error *ngIf="formGroup.get('director').touched && formGroup.get('director').errors && formGroup.get('director').errors.required">
+                    Director required!
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="DateAdded" formControlName="dateAdded" type="datetime">
+
+                <mat-error *ngIf="formGroup.get('dateAdded').touched && formGroup.get('dateAdded').errors && formGroup.get('dateAdded').errors.required">
+                    Date required!
+                </mat-error>
+            </mat-form-field>
+
+            <!--<mat-form-field>
+                <input matInput placeholder="Rating" formControlName="rating" type="number">
+
+                <mat-error *ngIf="formGroup.get('rating').touched && formGroup.get('rating').errors && formGroup.get('rating').errors.required">
+                    Rating required!
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Watched" formControlName="wasWatched" type="text">
+
+                <mat-error *ngIf="formGroup.get('wasWatched').touched && formGroup.get('wasWatched').errors && formGroup.get('wasWatched').errors.required">
+                    Watched required!
+                </mat-error>
+            </mat-form-field>-->
+
+        </div>
+        <div class="example-button-row">
+            <button mat-raised-button color="primary" (click)="save()">Save</button>
+            <button mat-raised-button color="primary" [routerLink]='routerLink'>Cancel</button>
+        </div>
+    </form>
+</mat-card>

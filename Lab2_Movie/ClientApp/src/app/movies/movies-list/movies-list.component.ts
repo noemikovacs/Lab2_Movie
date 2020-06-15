@@ -10,7 +10,7 @@ import { MoviesService } from '../movies.service';
 export class MoviesListComponent implements OnInit {
 
 
-    public displayedColumns: string[] = ['title', 'description', 'genre', 'durationInMin', 'yearOfRelease', 'director', 'dateAdded','rating', 'numberOfComments', 'action'];
+    public displayedColumns: string[] = ['title', 'description', 'genre', 'durationInMin', 'yearOfRelease', 'director', 'dateAdded', 'numberOfComments', 'action'];
     public movies: Movie[];
 
     constructor(private moviesService: MoviesService) { }

@@ -7,8 +7,8 @@ export interface Movie {
     yearOfRelease: number;
     director: string;
     dateAdded: Date;
-    rating: number;
-    wasWatched: boolean;
+    //rating: number;
+    //wasWatched: string;
 
 }
 export enum Genre {
