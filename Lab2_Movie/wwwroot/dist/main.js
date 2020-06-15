@@ -173,7 +173,7 @@ AppModule = __decorate([
             _nav_menu_nav_menu_component__WEBPACK_IMPORTED_MODULE_6__["NavMenuComponent"],
             _home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"],
             _counter_counter_component__WEBPACK_IMPORTED_MODULE_8__["CounterComponent"],
-            _fetch_data_fetch_data_component__WEBPACK_IMPORTED_MODULE_9__["FetchDataComponent"]
+            _fetch_data_fetch_data_component__WEBPACK_IMPORTED_MODULE_9__["FetchDataComponent"],
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"].withServerTransition({ appId: 'ng-cli-universal' }),
@@ -451,7 +451,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Noémi\source\repos\Lab2_Movie\Lab2_Movie\ClientApp\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Noémi\source\repos\Lab4_v1\Lab2_Movie\ClientApp\src\main.ts */"./src/main.ts");
 
 
 /***/ })
