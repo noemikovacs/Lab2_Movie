@@ -479,7 +479,7 @@ let MoviesEditComponent = class MoviesEditComponent {
             durationInMin: [movie.durationInMin, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
             yearOfRelease: [movie.yearOfRelease, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
             director: [movie.director, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
-            date: [movie.dateAdded, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]
+            dateAdded: [movie.dateAdded, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]
         });
     }
 };

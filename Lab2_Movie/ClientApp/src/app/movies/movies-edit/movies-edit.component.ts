@@ -74,7 +74,7 @@ export class MoviesEditComponent implements OnInit {
             durationInMin: [movie.durationInMin, Validators.required],
             yearOfRelease: [movie.yearOfRelease, Validators.required],
             director: [movie.director, Validators.required],
-            date: [movie.dateAdded, Validators.required]
+            dateAdded: [movie.dateAdded, Validators.required]
         });
     }
 }
