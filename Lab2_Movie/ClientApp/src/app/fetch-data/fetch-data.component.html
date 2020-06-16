@@ -32,7 +32,9 @@
           <td>{{ movie.rating}}</td>
           <td>{{ movie.wasWatched}}</td>
           <td>{{ movie.numberOfComments}}</td>
-          <td><a>Details</a>|<a>Edit</a>|<a>Delete</a></td>
+          <a class="btn btn-primary" [routerLink]="['/fetch-data', movie.id]" routerLinkActive="active">Details</a> |
+          <a class="btn btn-success">Edit</a> |
+          <a class="btn btn-danger" (click)=" delete(movie.id)">Delete</a>
       </tr>
   </tbody>
 </table>

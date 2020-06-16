@@ -31,6 +31,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
         { path: 'fetch-data', component: FetchDataComponent },
+        { path: 'fetch-data/:movieId', loadChildren: './movies/movies.module#MoviesModule' },
 
         { path: 'movies', loadChildren: './movies/movies.module#MoviesModule' },
     ]),
