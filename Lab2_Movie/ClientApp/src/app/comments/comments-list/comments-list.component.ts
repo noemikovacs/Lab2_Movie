@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Comment } from '../comments.models';
+import { CommentsService } from '../comments.service';
 
 @Component({
   selector: 'app-comments-list',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommentsListComponent implements OnInit {
 
-  constructor() { }
+    public displayedColumns: string[] = ['title', 'description', 'genre', 'durationInMin', 'yearOfRelease', 'director', 'dateAdded', 'numberOfComments', 'action'];
+    public comments: Comment[];
 
-  ngOnInit() {
-  }
+    constructor(private commentsService: CommentsService) { }
 
+    ngOnInit() {
+        this.loadComments();
+    }
+
+    loadComments() {
+        this.commentsService.listComments().subscribe(res => {
+            this.comments = res;
+        });
+    }
+
+    deleteComment(comment: Comment) {
+        this.commentsService.deleteComment(comment.id).subscribe(x => {
+            this.loadComments();
+        });
+    }
 }

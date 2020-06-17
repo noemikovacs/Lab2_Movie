@@ -33,6 +33,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         { path: 'fetch-data', component: FetchDataComponent },
         { path: 'fetch-data/:movieId', loadChildren: './movies/movies.module#MoviesModule' },
         { path: 'movies', loadChildren: './movies/movies.module#MoviesModule' },
+        { path: 'comments', loadChildren: './comments/comments.module#CommentsModule' },
     ]),
       BrowserAnimationsModule,
       AngularMaterialModule
