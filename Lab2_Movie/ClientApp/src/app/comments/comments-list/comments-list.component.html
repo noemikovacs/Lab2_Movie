@@ -20,6 +20,11 @@
         <td mat-cell *matCellDef="let comment"> {{comment.important}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="movieId">
+        <th mat-header-cell *matHeaderCellDef style="width:21%"> MovieId </th>
+        <td mat-cell *matCellDef="let comment"> {{comment.movieId}} </td>
+    </ng-container>
+
 
 
     Action Column

@@ -70,7 +70,7 @@ export class CommentsEditComponent implements OnInit {
         this.formGroup = this.formBuilder.group({
             text: [comment.text, Validators.required],
             important: [comment.important, Validators.required],
-            //movieId: [comment.movieId, Validators.required]
+            movieId: [comment.movieId, Validators.required]
         });
     }
 

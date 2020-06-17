@@ -19,6 +19,13 @@
                     Text required!
                 </mat-error>
             </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="MovieId" formControlName="movieId" type="number">
+
+                <mat-error *ngIf="formGroup.get('movieId').touched && formGroup.get('movieId').errors && formGroup.get('movieId').errors.required">
+                    Text required!
+                </mat-error>
+            </mat-form-field>
 
         </div>
         <div class="example-button-row">
