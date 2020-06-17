@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { CommentsComponent } from './comments.component';
 import { CommentsListComponent } from './comments-list/comments-list.component';
 import { CommentsEditComponent } from './comments-edit/comments-edit.component';
 
 
-const routes: Routes = [
+const routes2: Routes = [
     {
         path: '', component: CommentsComponent,
         children: [
@@ -19,11 +20,8 @@ const routes: Routes = [
 
 
 @NgModule({
-    //declarations: [MoviesEditComponent, MoviesListComponent],
-    //imports: [
-    //  CommonModule
-    //]
-    imports: [RouterModule.forChild(routes)],
+
+    imports: [RouterModule.forChild(routes2)],
     exports: [RouterModule]
 })
 export class CommentsRoutingModule {

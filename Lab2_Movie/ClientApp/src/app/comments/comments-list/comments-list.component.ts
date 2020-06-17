@@ -9,7 +9,8 @@ import { CommentsService } from '../comments.service';
 })
 export class CommentsListComponent implements OnInit {
 
-    public displayedColumns: string[] = ['title', 'description', 'genre', 'durationInMin', 'yearOfRelease', 'director', 'dateAdded', 'numberOfComments', 'action'];
+
+    public displayedColumns: string[] = ['text', 'important', 'action'];
     public comments: Comment[];
 
     constructor(private commentsService: CommentsService) { }

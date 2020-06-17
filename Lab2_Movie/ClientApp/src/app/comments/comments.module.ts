@@ -16,6 +16,7 @@ import { CommentsService } from './comments.service';
     declarations: [CommentsRoutingModule.routedComponents],
     imports: [
         CommonModule,
+        CommentsRoutingModule,
         AngularMaterialModule,
         CoreModule,
         FormsModule,

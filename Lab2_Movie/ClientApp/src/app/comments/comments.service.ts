@@ -18,12 +18,12 @@ export class CommentsService {
         return this.http.get<Comment[]>(`${this.applicationService.baseUrl}api/Comments`);
     }
 
-    saveComment(movie: Comment) {
-        return this.http.post(`${this.applicationService.baseUrl}api/Comments`, movie);
+    saveComment(comment: Comment) {
+        return this.http.post(`${this.applicationService.baseUrl}api/Comments`, comment);
     }
 
-    modifyComment(movie: Comment) {
-        return this.http.put(`${this.applicationService.baseUrl}api/Comments/${movie.id}`, movie);
+    modifyComment(comment: Comment) {
+        return this.http.put(`${this.applicationService.baseUrl}api/Comments/${comment.id}`, comment);
     }
 
     deleteComment(id: number) {
