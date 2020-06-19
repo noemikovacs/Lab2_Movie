@@ -5,45 +5,62 @@
 <div class="example-button-row">
     <button mat-raised-button [routerLink]='["../edit"]' color="primary">Add</button>
 </div>
+<br>
 
-<table mat-table [dataSource]="movies" class="mat-elevation-z8">
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+
+<!--<mat-table matTableFilter [exampleEntity]="filterEntity"
+           [filterType]="filterType" [dataSource]="dataSource" class="mat-elevation-z8">-->
+
+<!--<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>-->
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
 
     <ng-container matColumnDef="title">
         <th mat-header-cell *matHeaderCellDef style="width:21%"> Title </th>
-        <td mat-cell *matCellDef="let movie"> {{movie.title}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
     </ng-container>
 
 
     <ng-container matColumnDef="description">
         <th mat-header-cell *matHeaderCellDef style="width:21%"> Description </th>
-        <td mat-cell *matCellDef="let movie"> {{movie.description}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
     </ng-container>
 
 
     <ng-container matColumnDef="genre" style="width:21%">
         <th mat-header-cell *matHeaderCellDef> Genre </th>
-        <td mat-cell *matCellDef="let movie"> {{movie.genre}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.genre}} </td>
     </ng-container>
 
 
     <ng-container matColumnDef="durationInMin">
         <th mat-header-cell *matHeaderCellDef style="width:21%"> DurationInMin </th>
-        <td mat-cell *matCellDef="let movie"> {{movie.durationInMin}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.durationInMin}} </td>
     </ng-container>
 
     <ng-container matColumnDef="yearOfRelease">
         <th mat-header-cell *matHeaderCellDef style="width:21%"> YearOfRelease </th>
-        <td mat-cell *matCellDef="let movie"> {{movie.yearOfRelease}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.yearOfRelease}} </td>
     </ng-container>
 
     <ng-container matColumnDef="director">
         <th mat-header-cell *matHeaderCellDef style="width:21%"> Director </th>
-        <td mat-cell *matCellDef="let movie"> {{movie.director}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.director}} </td>
     </ng-container>
 
     <ng-container matColumnDef="dateAdded">
         <th mat-header-cell *matHeaderCellDef style="width:21%"> DateAdded </th>
-        <td mat-cell *matCellDef="let movie"> {{movie.dateAdded}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.dateAdded}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="numberOfComments">
+        <th mat-header-cell *matHeaderCellDef style="width:21%"> NrOfComments </th>
+        <td mat-cell *matCellDef="let element"> {{element.numberOfComments}} </td>
     </ng-container>
 
     <!--<ng-container matColumnDef="rating">
@@ -55,14 +72,6 @@
         <th mat-header-cell *matHeaderCellDef style="width:21%"> Watched </th>
         <td mat-cell *matCellDef="let movie"> {{movie.wasWatched}} </td>
     </ng-container>-->
-
-
-    <ng-container matColumnDef="numberOfComments">
-        <th mat-header-cell *matHeaderCellDef style="width:21%"> NrOfComments </th>
-        <td mat-cell *matCellDef="let movie"> {{movie.numberOfComments}} </td>
-    </ng-container>
-
-
     Action Column
     <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef style="width:10%"> Action </th>
@@ -80,7 +89,6 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-
-<mat-progress-bar mode="indeterminate" *ngIf="!movies"></mat-progress-bar>
+    <mat-progress-bar mode="indeterminate" *ngIf="!movies"></mat-progress-bar>
 
 

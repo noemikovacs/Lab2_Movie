@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h1>Movies</h1>\r\n\r\n<p>Many movies in the list</p>\r\n\r\n<div class=\"example-button-row\">\r\n    <button mat-raised-button [routerLink]='[\"../edit\"]' color=\"primary\">Add</button>\r\n</div>\r\n\r\n<table mat-table [dataSource]=\"movies\" class=\"mat-elevation-z8\">\r\n\r\n    <ng-container matColumnDef=\"title\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> Title </th>\r\n        <td mat-cell *matCellDef=\"let movie\"> {{movie.title}} </td>\r\n    </ng-container>\r\n\r\n\r\n    <ng-container matColumnDef=\"description\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> Description </th>\r\n        <td mat-cell *matCellDef=\"let movie\"> {{movie.description}} </td>\r\n    </ng-container>\r\n\r\n\r\n    <ng-container matColumnDef=\"genre\" style=\"width:21%\">\r\n        <th mat-header-cell *matHeaderCellDef> Genre </th>\r\n        <td mat-cell *matCellDef=\"let movie\"> {{movie.genre}} </td>\r\n    </ng-container>\r\n\r\n\r\n    <ng-container matColumnDef=\"durationInMin\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> DurationInMin </th>\r\n        <td mat-cell *matCellDef=\"let movie\"> {{movie.durationInMin}} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"yearOfRelease\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> YearOfRelease </th>\r\n        <td mat-cell *matCellDef=\"let movie\"> {{movie.yearOfRelease}} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"director\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> Director </th>\r\n        <td mat-cell *matCellDef=\"let movie\"> {{movie.director}} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"dateAdded\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> DateAdded </th>\r\n        <td mat-cell *matCellDef=\"let movie\"> {{movie.dateAdded}} </td>\r\n    </ng-container>\r\n\r\n    <!--<ng-container matColumnDef=\"rating\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> Rating </th>\r\n        <td mat-cell *matCellDef=\"let movie\"> {{movie.rating}} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"wasWatched\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> Watched </th>\r\n        <td mat-cell *matCellDef=\"let movie\"> {{movie.wasWatched}} </td>\r\n    </ng-container>-->\r\n\r\n\r\n    <ng-container matColumnDef=\"numberOfComments\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> NrOfComments </th>\r\n        <td mat-cell *matCellDef=\"let movie\"> {{movie.numberOfComments}} </td>\r\n    </ng-container>\r\n\r\n\r\n    Action Column\r\n    <ng-container matColumnDef=\"action\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:10%\"> Action </th>\r\n        <td mat-cell *matCellDef=\"let movie\">\r\n            <button mat-icon-button matTooltip=\"Edit\" [matTooltipPosition]=\"'after'\">\r\n                <mat-icon aria-label=\"Example icon-button with a heart icon\" [routerLink]=\"['../edit', movie.id]\">edit</mat-icon>\r\n            </button>\r\n\r\n            <button mat-icon-button matTooltip=\"Delete\" [matTooltipPosition]=\"'after'\">\r\n                <mat-icon aria-label=\"Example icon-button with a heart icon \" (click)=\"deleteMovie(movie)\">delete</mat-icon>\r\n            </button>\r\n        </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n</table>\r\n\r\n<mat-progress-bar mode=\"indeterminate\" *ngIf=\"!movies\"></mat-progress-bar>\r\n\r\n\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<h1>Movies</h1>\r\n\r\n<p>Many movies in the list</p>\r\n\r\n<div class=\"example-button-row\">\r\n    <button mat-raised-button [routerLink]='[\"../edit\"]' color=\"primary\">Add</button>\r\n</div>\r\n<br>\r\n\r\n<mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n</mat-form-field>\r\n\r\n<!--<mat-table matTableFilter [exampleEntity]=\"filterEntity\"\r\n           [filterType]=\"filterType\" [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">-->\r\n\r\n<!--<mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n</mat-form-field>-->\r\n\r\n<table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\" >\r\n\r\n    <ng-container matColumnDef=\"title\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> Title </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.title}} </td>\r\n    </ng-container>\r\n\r\n\r\n    <ng-container matColumnDef=\"description\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> Description </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.description}} </td>\r\n    </ng-container>\r\n\r\n\r\n    <ng-container matColumnDef=\"genre\" style=\"width:21%\">\r\n        <th mat-header-cell *matHeaderCellDef> Genre </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.genre}} </td>\r\n    </ng-container>\r\n\r\n\r\n    <ng-container matColumnDef=\"durationInMin\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> DurationInMin </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.durationInMin}} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"yearOfRelease\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> YearOfRelease </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.yearOfRelease}} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"director\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> Director </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.director}} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"dateAdded\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> DateAdded </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.dateAdded}} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"numberOfComments\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> NrOfComments </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.numberOfComments}} </td>\r\n    </ng-container>\r\n\r\n    <!--<ng-container matColumnDef=\"rating\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> Rating </th>\r\n        <td mat-cell *matCellDef=\"let movie\"> {{movie.rating}} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"wasWatched\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> Watched </th>\r\n        <td mat-cell *matCellDef=\"let movie\"> {{movie.wasWatched}} </td>\r\n    </ng-container>-->\r\n    Action Column\r\n    <ng-container matColumnDef=\"action\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:10%\"> Action </th>\r\n        <td mat-cell *matCellDef=\"let movie\">\r\n            <button mat-icon-button matTooltip=\"Edit\" [matTooltipPosition]=\"'after'\">\r\n                <mat-icon aria-label=\"Example icon-button with a heart icon\" [routerLink]=\"['../edit', movie.id]\">edit</mat-icon>\r\n            </button>\r\n\r\n            <button mat-icon-button matTooltip=\"Delete\" [matTooltipPosition]=\"'after'\">\r\n                <mat-icon aria-label=\"Example icon-button with a heart icon \" (click)=\"deleteMovie(movie)\">delete</mat-icon>\r\n            </button>\r\n        </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n</table>\r\n    <mat-progress-bar mode=\"indeterminate\" *ngIf=\"!movies\"></mat-progress-bar>\r\n\r\n\r\n");
 
 /***/ }),
 
@@ -167,7 +167,7 @@ MoviesEditComponent = __decorate([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("table {\r\n    width: 100%;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW92aWVzL21vdmllcy1saXN0L21vdmllcy1saXN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxXQUFXO0FBQ2YiLCJmaWxlIjoic3JjL2FwcC9tb3ZpZXMvbW92aWVzLWxpc3QvbW92aWVzLWxpc3QuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbInRhYmxlIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG59XHJcbiJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("table {\r\n    width: 100%;\r\n}\r\n\r\n.mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW92aWVzL21vdmllcy1saXN0L21vdmllcy1saXN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxXQUFXO0FBQ2Y7O0FBRUE7SUFDSSxlQUFlO0lBQ2YsV0FBVztBQUNmIiwiZmlsZSI6InNyYy9hcHAvbW92aWVzL21vdmllcy1saXN0L21vdmllcy1saXN0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJ0YWJsZSB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuLm1hdC1mb3JtLWZpZWxkIHtcclxuICAgIGZvbnQtc2l6ZTogMTRweDtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG59XHJcbiJdfQ== */");
 
 /***/ }),
 
@@ -183,6 +183,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MoviesListComponent", function() { return MoviesListComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _movies_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../movies.service */ "./src/app/movies/movies.service.ts");
+/* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/table */ "./node_modules/@angular/material/esm2015/table.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -192,23 +193,47 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 
 
+
 let MoviesListComponent = class MoviesListComponent {
     constructor(moviesService) {
         this.moviesService = moviesService;
+        /*,*/
         this.displayedColumns = ['title', 'description', 'genre', 'durationInMin', 'yearOfRelease', 'director', 'dateAdded', 'numberOfComments', 'action'];
+        this.isloading = false;
     }
     ngOnInit() {
         this.loadMovies();
     }
     loadMovies() {
-        this.moviesService.listMovies().subscribe(res => {
-            this.movies = res;
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                this.moviesService.listMovies().subscribe(res => {
+                    this.movies = res;
+                    this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_2__["MatTableDataSource"](this.movies);
+                    this.isloading = true;
+                });
+            }
+            catch (err) {
+                console.error(`this is not good: ${err.Message}`);
+                this.isloading = false;
+            }
         });
+    }
+    applyFilter(filterValue) {
+        this.dataSource.filter = filterValue.trim().toLowerCase();
     }
     deleteMovie(movie) {
         this.moviesService.deleteMovie(movie.id).subscribe(x => {

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../movies.models';
 import { MoviesService } from '../movies.service';
+import { MatTableDataSource } from '@angular/material/table';
+
 
 @Component({
   selector: 'app-movies-list',
@@ -9,21 +11,38 @@ import { MoviesService } from '../movies.service';
 })
 export class MoviesListComponent implements OnInit {
 
-
+    /*,*/
     public displayedColumns: string[] = ['title', 'description', 'genre', 'durationInMin', 'yearOfRelease', 'director', 'dateAdded', 'numberOfComments', 'action'];
     public movies: Movie[];
 
-    constructor(private moviesService: MoviesService) { }
+    public dataSource;
+    public isloading = false;
+
+    constructor(private moviesService: MoviesService) {}
 
     ngOnInit() {
         this.loadMovies();
     }
 
-    loadMovies() {
-        this.moviesService.listMovies().subscribe(res => {
-            this.movies = res;
-        });
+    
+
+    async loadMovies() {
+        try {
+            this.moviesService.listMovies().subscribe(res => {
+                this.movies = res;
+                this.dataSource = new MatTableDataSource(this.movies);
+                this.isloading = true;
+            });
+        } catch (err) {
+            console.error(`this is not good: ${err.Message}`);
+            this.isloading = false;
+        }
     }
+
+    applyFilter(filterValue: string) {
+        this.dataSource.filter = filterValue.trim().toLowerCase();
+    }
+
 
     deleteMovie(movie: Movie) {
         this.moviesService.deleteMovie(movie.id).subscribe(x => {
