@@ -14,9 +14,15 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Routes, RouterModule } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
+
 
 
 const routes: Routes = [
+    { path: 'login', component: LoginComponent },
+    { path: 'register', component: RegistrationComponent },
+
     { path: 'movies', loadChildren: './movies/movies.module#MoviesModule' },
     { path: 'comments', loadChildren: './comments/comments.module#CommentsModule' },
 
@@ -32,7 +38,9 @@ const routes: Routes = [
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
-    FetchDataComponent,
+        FetchDataComponent,
+        RegistrationComponent,
+        LoginComponent
    
   ],
   imports: [
